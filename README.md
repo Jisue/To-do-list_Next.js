@@ -45,3 +45,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
     - 자산
     - 메타데이터
     - CSS 스타일링
+
+
+### 2021-02-25
+- _app.js : 전체 컴포넌트의 공통 레이아웃
+
+2. Data Fetching
+- getStaticProps : 빌드시
+- getStaticPaths : 사전 렌더링 할 동적 경로를 지정
+- getSercerSideProps : 서버 측 렌더링, 각 요청에서 데이터를 가져옴
