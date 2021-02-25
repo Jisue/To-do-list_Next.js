@@ -1,19 +1,26 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import Layout from '../../components/layout'
+import styles from '../../styles/List.module.css'
+import axios from 'axios'
 
 export default function FirstPost() {
+
   return (
-    <Layout>
+    <div className = {styles.main}>
       <Head>
         <title>First Post</title>
       </Head>
-      <h1>First Post</h1>
+      <h1>
+          List
+      </h1>
+      <div>
+
+      </div>
       <h2>
         <Link href="/">
           <a>Back to home</a>
         </Link>
       </h2>
-    </Layout>
+    </div>
   )
 }

@@ -1,49 +1,45 @@
 import React, { useState } from "react";
 import Head from "next/head";
+import utilStyles from '../styles/utils.module.css'
+import styles from '../styles/Home.module.css'
+import Link from 'next/link'
 
 export default function Home() {
-  const [text, setText] = useState<string>("자바스크립트");
+  // const [text, setText] = useState<string>("");
 
-  setTimeout(() => {
-    setText("타입스크립트")
-  }, 1000)
+  // setTimeout(() => {
+  //   setText("타입스크립트")
 
   return (
-    <div className="container">
-      <div>
-        <span>{text} 적용 완료</span>
+    <>
+      <Head>
+        <title>List</title>
+      </Head>
+      <section className={utilStyles.headingMd}>
+        <h1 className={styles.title}>
+          Next Js To-do-list
+        </h1>
+        <p className={styles.center}>
+          (This is a sample website - you’ll be building a site like this on{' '}
+          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+        </p>
+      </section>
+      <div className="container">
+        {/* <div>
+          <span>{text} 적용 완료</span>
+        </div> */}
+        <h1 className={styles.title}>
+        Read{' '}
+        <Link href="/posts/list">
+          <a>this page!</a>
+        </Link>
+        </h1>
+        <h2>
+          <Link href="/posts/test">
+            <a>Test</a>
+          </Link>
+        </h2>
       </div>
-    </div>
-  );
-}
-
-// import Head from 'next/head'
-// import Layout, { siteTitle } from '../components/layout'
-// import utilStyles from '../styles/utils.module.css'
-// import styles from '../styles/Home.module.css'
-// import Link from 'next/link'
-
-// export default function Home() {
-//   return (
-    
-//     <Layout home>
-//       <Head>
-//         <title>{siteTitle}</title>
-//       </Head>
-      
-//       <section className={utilStyles.headingMd}>
-//         <p>[Your Self Introduction]</p>
-//         <p>
-//           (This is a sample website - you’ll be building a site like this on{' '}
-//           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-//         </p>
-//       </section>
-//       <h1 className={styles.title}>
-//         Read{' '}
-//         <Link href="/posts/first-post">
-//           <a>this page!</a>
-//         </Link>
-//       </h1>
-//     </Layout>
-//   )
-// }
+    </>
+    );
+  }
