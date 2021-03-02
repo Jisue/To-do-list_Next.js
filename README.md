@@ -61,5 +61,19 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
     - getInitialProps()는 클라이언트에서 todo를 호출하기 때문에 cors(도메인이 다르기 때문에)
     - todo API에서 CORS를 허용하여 해결
 
+```
+npm install cors
+npm install @types/cors
+
+```
+
+```
+import cors from 'cors';
+
+this.api = express();
+this.api.use(cors());
+
+```
+
 - getServerSideProps()는 SSR이기 때문에, todo api 도메인 내에서만 호출
     - cors 에러가 나지 않음
