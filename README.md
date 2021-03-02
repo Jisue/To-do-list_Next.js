@@ -54,3 +54,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - getStaticProps : 빌드시
 - getStaticPaths : 사전 렌더링 할 동적 경로를 지정
 - getSercerSideProps : 서버 측 렌더링, 각 요청에서 데이터를 가져옴
+
+### 2021-03-02
+1. CORS ERROR
+- getInitialProps() 사용시, todo API 호출이 안되는 에러.(네트워크 에러)
+    - getInitialProps()는 클라이언트에서 todo를 호출하기 때문에 cors(도메인이 다르기 때문에)
+    - todo API에서 CORS를 허용하여 해결
+
+- getServerSideProps()는 SSR이기 때문에, todo api 도메인 내에서만 호출
+    - cors 에러가 나지 않음

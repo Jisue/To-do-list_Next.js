@@ -19,10 +19,6 @@ export default function Home() {
         <h1 className={styles.title}>
           Next Js To-do-list
         </h1>
-        <p className={styles.center}>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
       </section>
       <div className="container">
         {/* <div>
@@ -34,9 +30,14 @@ export default function Home() {
           <a>this page!</a>
         </Link>
         </h1>
-        <h2>
+        <h2 className={styles.title}>
           <Link href="/posts/test">
             <a>Test</a>
+          </Link>
+        </h2>
+        <h2 className={styles.title}>
+          <Link href="/posts/test2">
+            <a>Test2</a>
           </Link>
         </h2>
       </div>
