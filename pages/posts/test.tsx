@@ -1,20 +1,19 @@
+import React from 'react';
 import Link from 'next/link'
 import Head from 'next/head'
 import styles from '../../styles/List.module.css'
-import axios from 'axios'
-import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Nav from '../components/nav';
 
-const Index = ({ list, error }) => {
-    if (error) {
-      return <div>An error occured: {error}</div>;
-    }
-    return (
-      <div className={styles.main}>
+const Posts = (props) => {
+  const list = props.posts[0];
+
+  return (
+    <div className={styles.main}>
       <Head>
         <title>First Post</title>
       </Head>
+      
       <Nav></Nav>
 
       <main className={styles.list}>
@@ -22,7 +21,7 @@ const Index = ({ list, error }) => {
           List
         </h1>
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          {list && list.map((list: { list_index: React.Key; list_name: React.ReactNode; list_status: React.ReactNode; list_dday: React.ReactNode; list_memo: React.ReactNode; }) => (
+          {list.map((list: { list_index: React.Key; list_name: React.ReactNode; list_status: React.ReactNode; list_dday: React.ReactNode; list_memo: React.ReactNode; }) => (
             <div className="col">
               <div className="card shadow-sm">
                 <div className="card-body">
@@ -47,49 +46,22 @@ const Index = ({ list, error }) => {
           ))}
         </div>
       </main>
-      
-          <h2>
-          <Link href="/">
-            <a>Back to home</a>
-          </Link>
-        </h2>
-        </div>
-    
-    );
-  };
+      <h2>
+        <Link href="/">
+          <a>Back to home</a>
+        </Link>
+      </h2>
+    </div>
+  );
+};
 
-Index.getInitialProps = async function() {
-        try {
-            const res = await axios.get('http://localhost:3001/todos');
-            const list = res.data[0];
-            return { list };
-          } catch (error) {
-            return { list:{},error };
-          }
-    };
+export async function getServerSideProps() {
 
-export default Index
+  const res = await fetch(`http://localhost:3001/todos`);
+  const data = await res.json()
+
+  return { props: { posts: data } }
+}
 
 
-
-// export default function FirstPost() {
-
-//   return (
-//     <div className = {styles.main}>
-//       <Head>
-//         <title>First Post</title>
-//       </Head>
-//       <h1>
-//           List
-//       </h1>
-//       <div>
-
-//       </div>
-//       <h2>
-//         <Link href="/">
-//           <a>Back to home</a>
-//         </Link>
-//       </h2>
-//     </div>
-//   )
-// }
+export default Posts;
