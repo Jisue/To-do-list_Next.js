@@ -77,3 +77,27 @@ this.api.use(cors());
 
 - getServerSideProps()는 SSR이기 때문에, todo api 도메인 내에서만 호출
     - cors 에러가 나지 않음
+
+### 2021-03-03
+
+1. 진행 사항
+
+- Add 페이지
+    - form 부분을 컴포넌트화
+    - 리스트 추가 기능 구현
+
+- List 페이지
+    - Status에 따른 분류
+    - delete기능 추가
+
+- Delete 페이지
+    - trash 페이지 구현
+
+2. 이슈 사항
+
+- 버튼 이벤트 구현 도중 인자 전달 문제
+```
+onClick={handleDelete(list.list_index)} // ( X )
+onClick={() => handleDelete(list.list_index)} // ( O )
+```
+- 아래의 코드 처럼 () => 를 추가해 주어야함 
