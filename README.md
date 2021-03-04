@@ -12,7 +12,7 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<!-- You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
@@ -31,7 +31,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details. -->
 
 ## NextJS Study
 - npx create-next-app 이용
@@ -101,3 +101,17 @@ onClick={handleDelete(list.list_index)} // ( X )
 onClick={() => handleDelete(list.list_index)} // ( O )
 ```
 - 아래의 코드 처럼 () => 를 추가해 주어야함 
+
+
+### 2021-03-04
+
+1. React Hook
+- useState : state를 컴포넌트 안에서 사용
+
+2. 진행 사항
+- 수정 구현
+    - useState를 이용하여 팝업창 Open
+    - 팝업창을 Modal로 컴포넌트화 하여 기능 구현
+- 영구 삭제
+    - Trash메뉴에서 Delete시 영구삭제
+- 복원 기능

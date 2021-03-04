@@ -40,6 +40,11 @@ export default function Home() {
             <a>Test2</a>
           </Link>
         </h2>
+        <h2 className={styles.title}>
+          <Link href="/posts/test3">
+            <a>Test3</a>
+          </Link>
+        </h2>
       </div>
     </>
     );

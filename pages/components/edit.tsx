@@ -7,13 +7,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Nav from '../components/nav';
 import axios from 'axios';
 
-function AddTodo() {
+function Edit() {
     //갹채를 업데이트하기위해 useState안에 객체를 사용
     const [inputs, setInputs] = useState({
         list_name: '',
         list_date: '',
         list_memo: '',
-        list_color: '#FFFFFF',
+        list_color: '',
     })
     //값을 가져오기 위해 inputs에 name으로 가져왔다
     const { list_name, list_date, list_memo, list_color } = inputs
@@ -75,7 +75,7 @@ function AddTodo() {
                             <br />
                             <input className="form-control" type="text" placeholder="내용" name="list_memo" onChange={onChange} value={list_memo} />
                             <br />
-                            <h2 className="fw-light">Color Picker<input type="color" placeholder="#333333" name="list_color" onChange={onChange} value={list_color} /></h2>
+                            <h2 className="fw-light">Color Picker<input type="color" name="list_color" onChange={onChange} value={list_color} /></h2>
                             <br />
                             <button className="btn btn-primary" type="submit">Add</button>
                         </form>
@@ -86,4 +86,4 @@ function AddTodo() {
     )
 }
 
-export default AddTodo
+export default Edit

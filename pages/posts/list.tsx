@@ -2,23 +2,29 @@ import Link from 'next/link'
 import Head from 'next/head'
 import styles from '../../styles/List.module.css'
 import axios from 'axios'
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Nav from '../components/nav';
-import { ParsedUrlQueryInput, stringify } from 'querystring';
+import Modal from '../components/modal';
 
 const Index = ({ listDoing, listDone, listFailed, error }) => {
   if (error) {
     return <div>An error occured: {error}</div>;
   }
 
-  const handleDelete = (delete_index) => {
-    // alert(list_name + '\n' +list_date + '\n' +list_memo + '\n' +list_color);
-    // e.preventDefault();
+  // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
+  const [modalOpen, setModalOpen] = useState(undefined);
 
-    if (confirm("정말 버리겠습니까??") === false) {
-      return;
-    }
+  const openModal = (list) => {
+    setModalOpen(list);
+  }
+  const closeModal = () => {
+    setModalOpen(undefined);
+    location.reload();
+  }
+
+
+  const handleDelete = (delete_index) => {
 
     const trashRequest = async () => {
       console.log(delete_index + "휴지통");
@@ -38,6 +44,28 @@ const Index = ({ listDoing, listDone, listFailed, error }) => {
     trashRequest();
     location.reload();
   }
+
+  const handleEdit = (edit_index) => {
+
+    const editRequest = async () => {
+      console.log(edit_index + "수정");
+      try {
+        const response1 = await axios({
+          method: 'get',
+          url: 'http://localhost:3001/todos/' + edit_index,
+          params: {
+            list_index: edit_index,
+          },
+        })
+      } catch (err) {
+        // Handle Error Here
+        console.error(err);
+      }
+    };
+    editRequest();
+    location.reload();
+  }
+
   return (
     <>
       <div className={styles.main}>
@@ -66,7 +94,9 @@ const Index = ({ listDoing, listDone, listFailed, error }) => {
                       </div>
                       <div className="d-flex justify-content-between align-items-center">
                         <div className="btn-group">
-                          <button type="button" className="btn btn-sm btn-outline-secondary">Edit</button>
+                          <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => openModal(list)}>Edit</button>
+                          <Modal open={modalOpen} close={closeModal} header="Edit Todo">
+                          </Modal>
                           <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => handleDelete(list.list_index)}>Delete</button>
                         </div>
                         <small className="text-muted">{list.list_status}</small>
@@ -99,7 +129,9 @@ const Index = ({ listDoing, listDone, listFailed, error }) => {
                       </div>
                       <div className="d-flex justify-content-between align-items-center">
                         <div className="btn-group">
-                          <button type="button" className="btn btn-sm btn-outline-secondary">Edit</button>
+                        <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => openModal(list)}>Edit</button>
+                          <Modal open={modalOpen} close={closeModal} header="Edit Todo">
+                          </Modal>
                           <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => handleDelete(list.list_index)}>Delete</button>
                         </div>
                         <small className="text-muted">{list.list_status}</small>
@@ -132,7 +164,9 @@ const Index = ({ listDoing, listDone, listFailed, error }) => {
                       </div>
                       <div className="d-flex justify-content-between align-items-center">
                         <div className="btn-group">
-                          <button type="button" className="btn btn-sm btn-outline-secondary">Edit</button>
+                        <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => openModal(list)}>Edit</button>
+                          <Modal open={modalOpen} close={closeModal} header="Edit Todo">
+                          </Modal>
                           <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => handleDelete(list.list_index)}>Delete</button>
                         </div>
                         <small className="text-muted">{list.list_status}</small>
@@ -145,7 +179,6 @@ const Index = ({ listDoing, listDone, listFailed, error }) => {
           </div>
 
           <hr />
-
         </main>
 
         <h2>
