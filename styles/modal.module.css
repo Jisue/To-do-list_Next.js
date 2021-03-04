@@ -1,12 +1,11 @@
 .modal {
     position: fixed;
-    top: 0;
+    top: 3%;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: 99;
-    /* background-color: rgb(0,0,0,0.6); */
-    margin-top: 10%;
+    background-color: rgb(0,0,0,0.2);
     padding : 10%;
 }
 .modal button {
@@ -15,7 +14,7 @@
     border: 0;
 }
 .modal > section {
-    width: 90%;
+    width: 100%;
     max-width: 450px;
     margin:0 auto;
     border-radius: .3rem;

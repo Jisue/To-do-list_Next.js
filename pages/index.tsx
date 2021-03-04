@@ -5,10 +5,6 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
 export default function Home() {
-  // const [text, setText] = useState<string>("");
-
-  // setTimeout(() => {
-  //   setText("타입스크립트")
 
   return (
     <>
@@ -21,9 +17,6 @@ export default function Home() {
         </h1>
       </section>
       <div className="container">
-        {/* <div>
-          <span>{text} 적용 완료</span>
-        </div> */}
         <h1 className={styles.title}>
         Read{' '}
         <Link href="/posts/list">

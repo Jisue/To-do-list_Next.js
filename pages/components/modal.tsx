@@ -9,7 +9,7 @@ const Modal = (props) => {
     //갹채를 업데이트하기위해 useState안에 객체를 사용
     const [inputs, setInputs] = useState({    
         list_name: '',
-        list_dday: '',
+        list_date: '',
         list_memo: '',
         list_color: '#FFFFFF',
     })
@@ -18,7 +18,7 @@ const Modal = (props) => {
         setInputs(open);
     }
     //값을 가져오기 위해 inputs에 name으로 가져왔다
-    const { list_name, list_dday, list_memo, list_color } = inputs
+    const { list_name, list_date, list_memo, list_color } = inputs
 
     const onChange = (e) => {
         //input에 name을 가진 요소의 value에 이벤트를 걸었다
@@ -50,7 +50,7 @@ const Modal = (props) => {
                     params: {
                         status : 'Edit',
                         list_name: list_name,
-                        list_date: list_dday,
+                        list_date: list_date,
                         list_memo: list_memo,
                         list_color: list_color
                     },
@@ -76,15 +76,15 @@ const Modal = (props) => {
                         </header>
                         <main>
                             {props.children}
-                            <section className="py-5 text-center container">
+                            <section className="text-center container">
                                 <div className="row py-lg-5">
-                                    <div className="col-lg-6 col-md-8 mx-auto">
+                                    <div className="col-lg-10 col-md-10 mx-auto">
                                         <form id="add_form" action="/posts/list" method="post" onSubmit={handleSubmit}>
-                                            <input className="name form-control" type="text" placeholder={open.list_name} name="list_name" onChange={onChange} value={list_name} />
+                                            <input className="name form-control" type="text" placeholder="제목" name="list_name" onChange={onChange} value={list_name} />
                                             <br />
-                                            <input className="form-control" id="add_date" type="date" name="list_date" onChange={onChange} value={list_dday} />
+                                            <input className="form-control" id="add_date" type="date" name="list_date" onChange={onChange} value={list_date} />
                                             <br />
-                                            <input className="form-control" type="text" placeholder={open.list_memo} name="list_memo" onChange={onChange} value={list_memo} />
+                                            <input className="form-control" type="text" placeholder="메모" name="list_memo" onChange={onChange} value={list_memo} />
                                             <br />
                                             <h2 className="fw-light">Color Picker <input type="color" name="list_color" onChange={onChange} value={list_color} /></h2>
                                             <br />
@@ -95,6 +95,7 @@ const Modal = (props) => {
                             </section>
                         </main>
                         <footer>
+                            {open.list_name} : {open.list_dday} &nbsp;&nbsp;&nbsp;
                             <button className="close" type="button" onClick={setopen}>불러오기</button>
                         </footer>
                     </section>

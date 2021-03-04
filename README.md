@@ -115,3 +115,9 @@ onClick={() => handleDelete(list.list_index)} // ( O )
 - 영구 삭제
     - Trash메뉴에서 Delete시 영구삭제
 - 복원 기능
+- Fail처리를 위한 날짜 동기화 버튼 구현
+- List 메뉴 컴포넌트화 진행
+    - Edit 버튼
+    - Delete 버튼
+    - Fail 처리 버튼
+    - 상태에 따른 Lists

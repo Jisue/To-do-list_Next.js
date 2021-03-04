@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import styles from '../../styles/List.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
-import Nav from '../components/nav';
+import Nav from '../nav';
 import axios from 'axios';
 
 function AddTodo() {
