@@ -38,6 +38,11 @@ export default function Home() {
             <a>Test3</a>
           </Link>
         </h2>
+        <h2 className={styles.title}>
+          <Link href="/posts/testui">
+            <a>TestUI</a>
+          </Link>
+        </h2>
       </div>
     </>
     );

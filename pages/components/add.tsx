@@ -1,10 +1,6 @@
 //useState를 사용하기 위하여 import
 import React, { useState } from 'react'
-import Link from 'next/link'
-import Head from 'next/head'
-import styles from '../../styles/List.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
-import Nav from '../nav';
 import axios from 'axios';
 
 function AddTodo() {
@@ -75,7 +71,7 @@ function AddTodo() {
                             <br />
                             <input className="form-control" type="text" placeholder="내용" name="list_memo" onChange={onChange} value={list_memo} />
                             <br />
-                            <h2 className="fw-light">Color Picker<input type="color" placeholder="#333333" name="list_color" onChange={onChange} value={list_color} /></h2>
+                            <h2 className="fw-light">Color Picker&nbsp;&nbsp;&nbsp;<input type="color" placeholder="#333333" name="list_color" onChange={onChange} value={list_color} /></h2>
                             <br />
                             <button className="btn btn-primary" type="submit">Add</button>
                         </form>

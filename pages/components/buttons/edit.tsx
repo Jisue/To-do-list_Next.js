@@ -5,6 +5,8 @@ import Modal from '../modal';
 
 function Edit({ getlist }) {
     // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
+    // useState(initialValue)
+    // setModalOpen : initialValue를 노출하지 않고 변경
     const [modalOpen, setModalOpen] = useState(undefined);
 
     const openModal = (list) => {

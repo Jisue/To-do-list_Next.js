@@ -1,7 +1,5 @@
-import axios from 'axios'
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import Modal from '../modal';
 import Done from '../buttons/done';
 import Edit from '../buttons/edit';
 import Delete from '../buttons/delete';
@@ -24,7 +22,7 @@ const DoingList = ({ getlist }) => {
                       </div>
                       <div className="d-flex justify-content-between align-items-center">
                         <div className="btn-group">
-                          <Edit getlist={getlist}></Edit>
+                          <Edit getlist={list}></Edit>
                           <Delete list_index={list.list_index}></Delete>
                         </div>
                         <small className="text-muted">{list.list_status}</small>

@@ -5,55 +5,12 @@ import axios from 'axios'
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Nav from '../components/nav';
+import Restore from '../components/buttons/restore';
+import DeleteTrash from '../components/buttons/deleteTrash';
 
 const Index = ({ listOff, error }) => {
   if (error) {
     return <div>An error occured: {error}</div>;
-  }
-  const handleDelete = (delete_index) => {
-
-    if (confirm("영구 삭제 됩니다.") === false) {
-      return;
-    }
-
-    const trashRequest = async () => {
-      console.log(delete_index + "영구 삭제");
-      try {
-        const response1 = await axios({
-          method: 'delete',
-          url: 'http://localhost:3001/trashs/' + delete_index,
-          params: {
-            list_index: delete_index,
-          },
-        })
-      } catch (err) {
-        // Handle Error Here
-        console.error(err);
-      }
-    };
-    trashRequest();
-    location.reload();
-  }
-
-  const handleUpdate = (update_index) => {
-
-    const restoreRequest = async () => {
-      console.log(update_index + "복구됨");
-      try {
-        const response1 = await axios({
-          method: 'put',
-          url: 'http://localhost:3001/trashs/' + update_index,
-          params: {
-            list_index: update_index,
-          },
-        })
-      } catch (err) {
-        // Handle Error Here
-        console.error(err);
-      }
-    };
-    restoreRequest();
-    location.reload();
   }
 
   return (
@@ -84,9 +41,9 @@ const Index = ({ listOff, error }) => {
                     </div>
                     <div className="d-flex justify-content-between align-items-center">
                       <div className="btn-group">
-                      <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => handleUpdate(list.list_index)}>Restore</button>
-                        <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => handleDelete(list.list_index)}>Delete</button>
-                      </div>
+                        <Restore list_index = {list.list_index}></Restore>
+                        <DeleteTrash list_index={list.list_index}></DeleteTrash>
+                        </div>
                       <small className="text-muted">{list.list_status}</small>
                     </div>
                   </div>

@@ -11,7 +11,7 @@ const Modal = (props) => {
         list_name: '',
         list_date: '',
         list_memo: '',
-        list_color: '#FFFFFF',
+        list_color: '',
     })
 
     const setopen = () => {
