@@ -5,8 +5,8 @@ import axios from 'axios'
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Nav from '../components/nav';
-import Restore from '../components/buttons/restore';
-import DeleteTrash from '../components/buttons/deleteTrash';
+import TrashList from '../components/lists/trashList';
+import Grid from '@material-ui/core/Grid';
 
 const Index = ({ listOff, error }) => {
   if (error) {
@@ -21,47 +21,23 @@ const Index = ({ listOff, error }) => {
       <Nav></Nav>
 
       <main className={styles.list}>
-        <div>
-          <h1>
-            List Doing
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={2}>
+          </Grid>
+          <Grid item xs={12} sm={8}>
+            <div>
+              <h1>
+                Trash
           </h1>
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            {listOff && listOff.map((list: { list_index: React.Key; list_name: React.ReactNode; list_status: React.ReactNode; list_dday: React.ReactNode; list_memo: React.ReactNode; list_color: React.ReactNode; }) => (
-              <div className="col">
-                <div className="card shadow-sm">
-                  <div className="card-body" style={{ backgroundColor: "" + list.list_color }}>
-                    <div key={list.list_index}>
-                      <h3>{list.list_name}</h3>
-                      <small className="text-muted">D-Day : {list.list_dday}</small>
-                      <br></br>
-                      <br></br>
-                      {/* <p>{list.list_color}</p> */}
-                      <p className="card-text">{list.list_memo}</p>
-                      <br></br>
-                    </div>
-                    <div className="d-flex justify-content-between align-items-center">
-                      <div className="btn-group">
-                        <Restore list_index = {list.list_index}></Restore>
-                        <DeleteTrash list_index={list.list_index}></DeleteTrash>
-                        </div>
-                      <small className="text-muted">{list.list_status}</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
+          <hr />
+              <TrashList getlist={listOff}></TrashList>
+            </div>
+            <hr />
+          </Grid>
+          <Grid item xs={12} sm={2}>
+          </Grid>
+        </Grid>
       </main>
-
-      <hr/>
-
-      <h2>
-        <Link href="/">
-          <a>Back to home</a>
-        </Link>
-      </h2>
     </div>
 
   );

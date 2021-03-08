@@ -4,6 +4,8 @@ import styles from '../../styles/List.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import Nav from '../components/nav';
 import AddTodo from '../components/add';
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
 
 function AddList() {
   return (
@@ -15,18 +17,22 @@ function AddList() {
       <Nav></Nav>
 
       <main className={styles.list}>
-        <h1>
+      <Grid container spacing={2}>
+          <Grid item xs={12} sm={2}>
+          </Grid>
+          <Grid item xs={12} sm={8}>
+            <h1>
           New List
-        </h1>
+          </h1>
+            <hr />
+          </Grid>
+          <Grid item xs={12} sm={2}>
+          </Grid>
+        </Grid>
 
         <AddTodo></AddTodo>
 
       </main>
-      <h2>
-          <Link href="/">
-            <a>Back to home</a>
-          </Link>
-        </h2>
     </div>
   )
 }

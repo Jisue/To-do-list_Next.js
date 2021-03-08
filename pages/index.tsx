@@ -3,6 +3,11 @@ import Head from "next/head";
 import utilStyles from '../styles/utils.module.css'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import Explain from "./components/explain";
+import Grid from "@material-ui/core/Grid";
+import Nav from "./components/nav";
+import 'bootstrap/dist/css/bootstrap.css';
+import indexstyles from '../styles/index.module.css'
 
 export default function Home() {
 
@@ -11,39 +16,34 @@ export default function Home() {
       <Head>
         <title>List</title>
       </Head>
-      <section className={utilStyles.headingMd}>
+      <Nav></Nav>
+      <main className={indexstyles.main}>
+        <section className={utilStyles.headingMd}>
+          <h1 className={styles.title}>
+            Next Js To-do-list
+          </h1>
+        </section>
+        <div className={indexstyles.ex}>
+          <Grid container spacing={2}>
+          <Grid item xs={12} sm ={4}>
+            <p></p>
+          </Grid>
+          <Grid item xs={12} sm={5}>
+          <Explain></Explain>
+          </Grid>
+          <Grid item xs={12} sm={3}>
+          <p></p>
+          </Grid>
+        </Grid>
+
         <h1 className={styles.title}>
-          Next Js To-do-list
-        </h1>
-      </section>
-      <div className="container">
-        <h1 className={styles.title}>
-        Read{' '}
-        <Link href="/posts/list">
-          <a>this page!</a>
-        </Link>
-        </h1>
-        <h2 className={styles.title}>
-          <Link href="/posts/test">
-            <a>Test</a>
+          Go{' '}
+          <Link href="/posts/list">
+            <a>this page!</a>
           </Link>
-        </h2>
-        <h2 className={styles.title}>
-          <Link href="/posts/test2">
-            <a>Test2</a>
-          </Link>
-        </h2>
-        <h2 className={styles.title}>
-          <Link href="/posts/test3">
-            <a>Test3</a>
-          </Link>
-        </h2>
-        <h2 className={styles.title}>
-          <Link href="/posts/testui">
-            <a>TestUI</a>
-          </Link>
-        </h2>
-      </div>
+          </h1>
+        </div>
+      </main>
     </>
     );
   }

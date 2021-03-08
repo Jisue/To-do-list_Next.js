@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Head from 'next/head'
 import styles from '../../styles/List.module.css'
 import axios from 'axios'
@@ -8,6 +7,7 @@ import Nav from '../components/nav';
 import Fail from '../components/buttons/fail';
 import List from '../components/lists/list';
 import DoingList from '../components/lists/doingList';
+import Grid from '@material-ui/core/Grid';
 
 const Index = ({ listDoing, listDone, listFailed, error }) => {
   if (error) {
@@ -22,40 +22,42 @@ const Index = ({ listDoing, listDone, listFailed, error }) => {
         </Head>
         <Nav></Nav>
         <main className={styles.list}>
-          <div>
-            <h1>
-              List Doing
-            </h1>
-            <DoingList getlist={listDoing}></DoingList>
-          </div>
-
-          <hr />
-          <div>
-            <h1>
-              List Done
-            </h1>
-            <List getlist={listDone}></List>
-          </div>
-
-          <hr />
-
-          <div>
-            <h1>
-              List Failed
-            </h1>
-            <List getlist={listFailed}></List>
-          </div>
-
-          <hr />
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={2}>
+            </Grid>
+            <Grid item xs={12} sm={8}>
+              <div>
+                <h1>
+                  Doing
+                </h1>
+                <hr />
+                <DoingList getlist={listDoing}></DoingList>
+              </div>
+              <hr />
+              <div>
+                <h1>
+                  Done
+                </h1>
+                <hr />
+                <List getlist={listDone}></List>
+              </div>
+              <hr />
+              <div>
+                <h1>
+                  Failed
+                </h1>
+                <hr />
+                <List getlist={listFailed}></List>
+              </div>
+              <hr />
+              <h2>
+                <Fail listDoing={listDoing} error={error} ></Fail>
+              </h2>
+            </Grid>
+            <Grid item xs={12} sm={2}>
+            </Grid>
+          </Grid>
         </main>
-        
-
-        <h2>
-          <Link href="/">
-            <a>Back to home</a>
-          </Link>
-          <Fail listDoing={listDoing} error={error} ></Fail>
-        </h2>
       </div>
     </>
 

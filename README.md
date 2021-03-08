@@ -119,3 +119,7 @@ import ... from '@material-ui/core';
 
 1. Done UI 수정
 - Material-ui 의 checkbox를 이용
+
+2. Bootstrap Grid -> Material UI Grid
+
+3. Index에 Stepper로 간단한 설명 추가
