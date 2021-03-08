@@ -13,7 +13,7 @@ const DoingList = ({ getlist }) => {
                   <div className="card shadow-sm">
                     <div className="card-body" style={{ backgroundColor: "" + list.list_color }}>
                       <div key={list.list_index}>
-                        <h3><Done list_index={getlist.list_index}></Done>&nbsp;&nbsp;&nbsp;{list.list_name}</h3>
+                        <h3><Done list_index={list.list_index}></Done>{list.list_name}</h3>
                         <small className="text-muted">D-Day : {list.list_dday}</small>
                         <br></br>
                         <br></br>

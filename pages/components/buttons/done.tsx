@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const Done = ({ list_index }) => {
 
@@ -30,7 +31,15 @@ const Done = ({ list_index }) => {
     }
     return (
         <>
-        <button className ="btn.btn-sm.btn-outline-secondary" type='button' onClick={handleClick}>&nbsp;&nbsp;&nbsp;</button>
+        {/* <button className ="btn.btn-sm.btn-outline-secondary" type='button' onClick={handleClick}>&nbsp;&nbsp;&nbsp;</button> */}
+        <Checkbox style={{float:"right"}}
+        // checked={checked}
+        color="default"
+        onClick={handleClick}
+        inputProps={{
+          'aria-label': 'checkbox with default color',
+        }}
+      />
         </>
 
     );
