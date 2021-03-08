@@ -1,9 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React, { useState } from "react";
-import Snackbar, { SnackbarOrigin } from '@material-ui/core/Snackbar';
-import { makeStyles } from '@material-ui/core/styles';
+import Snackbar from '@material-ui/core/Snackbar';
 import axios from 'axios';
-import Slide, { SlideProps } from '@material-ui/core/Slide';
 import { State, TransitionLeft, TransitionProps, useStyles } from './snackbar';
 
 const Delete = ({ list_index }) => {

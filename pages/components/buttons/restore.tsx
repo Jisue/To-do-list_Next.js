@@ -2,9 +2,7 @@ import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.css';
 import React, { useState } from "react";
 import { State, TransitionLeft, TransitionProps, useStyles } from './snackbar';
-import Snackbar, { SnackbarOrigin } from '@material-ui/core/Snackbar';
-import { makeStyles } from '@material-ui/core/styles';
-import Slide, { SlideProps } from '@material-ui/core/Slide';
+import Snackbar from '@material-ui/core/Snackbar';
 
 const Restore = ({ list_index }) => {
 

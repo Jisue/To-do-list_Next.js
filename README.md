@@ -102,3 +102,20 @@ onClick={() => handleDelete(list.list_index)} // ( O )
     - 상태에 따른 Lists
 
 ### 2021-03-05
+
+1. Material-UI
+- React 디자인을 위한 컴포넌트 라이브러리
+
+```
+npm install @material-ui/core@next @emotion/react @emotion/styled
+
+import ... from '@material-ui/core';
+```
+2. 알림창 구현
+- Delete, Restore시 알림창이 0.5초동안 뜸
+- Material-ui의 Snackbar를 이용
+
+### 2021-03-08
+
+1. Done UI 수정
+- Material-ui 의 checkbox를 이용
