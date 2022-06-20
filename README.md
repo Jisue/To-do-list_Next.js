@@ -12,6 +12,12 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+To-do-list
+이전에 만든 To-do-list를 Next.JS를 적용해 다시 만들어보기
+
+기존 To-do-list : https://github.com/Jisue/To-do-list
+API서버 : https://github.com/Jisue/To-do-list-api
+
 ## NextJS Study
 - npx create-next-app 이용
 - npm run dev 실행
