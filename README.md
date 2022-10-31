@@ -37,7 +37,7 @@ To-do-list
 2. Data Fetching
 - getStaticProps : 빌드시
 - getStaticPaths : 사전 렌더링 할 동적 경로를 지정
-- getSercerSideProps : 서버 측 렌더링, 각 요청에서 데이터를 가져옴
+- getServerSideProps : 서버 측 렌더링, 각 요청에서 데이터를 가져옴
 
 ### 2021-03-02
 1. CORS ERROR
