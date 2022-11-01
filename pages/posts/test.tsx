@@ -21,13 +21,13 @@ const Posts = (props) => {
           List
         </h1>
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          {list.map((list: { list_index: React.Key; list_name: React.ReactNode; list_status: React.ReactNode; list_dday: React.ReactNode; list_memo: React.ReactNode; }) => (
+          {list.map((list: { list_index: React.Key; list_name: React.ReactNode; list_status: React.ReactNode; list_date: React.ReactNode; list_memo: React.ReactNode; }) => (
             <div className="col">
               <div className="card shadow-sm">
                 <div className="card-body">
                   <div key={list.list_index}>
                     <h3>{list.list_name}</h3>
-                    <small className="text-muted">D-Day : {list.list_dday}</small>
+                    <small className="text-muted">D-Day : {list.list_date}</small>
                     <br></br>
                     <br></br>
                     <p className="card-text">{list.list_memo}</p>

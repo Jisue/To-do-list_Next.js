@@ -7,13 +7,13 @@ const TrashList = ({ getlist }) => {
     return (
         <>
          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            {getlist && getlist.map((list: { list_index: React.Key; list_name: React.ReactNode; list_status: React.ReactNode; list_dday: React.ReactNode; list_memo: React.ReactNode; list_color: React.ReactNode; }) => (
+            {getlist && getlist.map((list: { list_index: React.Key; list_name: React.ReactNode; list_status: React.ReactNode; list_date: React.ReactNode; list_memo: React.ReactNode; list_color: React.ReactNode; }) => (
               <div className="col">
                 <div className="card shadow-sm">
                   <div className="card-body" style={{ backgroundColor: "" + list.list_color }}>
                     <div key={list.list_index}>
                       <h3>{list.list_name}</h3>
-                      <small className="text-muted">D-Day : {list.list_dday}</small>
+                      <small className="text-muted">D-Day : {list.list_date}</small>
                       <br></br>
                       <br></br>
                       {/* <p>{list.list_color}</p> */}

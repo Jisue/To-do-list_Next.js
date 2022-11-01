@@ -17,7 +17,7 @@ const Fail = ({ listDoing, error }) => {
 
         for(let i = 0 ; i < listDoing.length;i++){
 
-            if (listDoing[i].list_dday >= time){
+            if (listDoing[i].list_date >= time){
                 continue;
             }
 
@@ -64,7 +64,7 @@ Fail.getInitialProps = async function () {
         console.log(time);
 
         for (let i = 0; i < list.length; i++) {
-            if (list[i].list_on === 1 && list[i].list_status === 'Doing' && list[i].list_dday < time)
+            if (list[i].list_on === 1 && list[i].list_status === 'Doing' && list[i].list_date < time)
                 listDoing.push(list[i]);
 
         }

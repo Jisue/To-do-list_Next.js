@@ -95,7 +95,7 @@ const Modal = (props) => {
                             </section>
                         </main>
                         <footer>
-                            {open.list_name} : {open.list_dday} &nbsp;&nbsp;&nbsp;
+                            {open.list_name} : {open.list_date} &nbsp;&nbsp;&nbsp;
                             <button className="close" type="button" onClick={setopen}>불러오기</button>
                         </footer>
                     </section>
